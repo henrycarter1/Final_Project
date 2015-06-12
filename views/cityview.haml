@@ -1,0 +1,12 @@
+%h2= @t.name
+%form{:method => "post", :action => "/location/view/subject"}
+  %label{:for => "subject"} Choose a Category
+  %select{:name => "subject"}
+    -@subjects.each do |subject|
+      %option{:value => subject.name} #{subject.name}
+  %input{:type => "submit"}
+
+%form{:method => "post", :action => "/subject/create/#{@t.id}"}
+  %label{:for => "sname"} Make a new category
+  %input{:type => "text", :name => "sname"}
+  %input{:type => "submit"}

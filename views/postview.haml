@@ -1,0 +1,19 @@
+%h2{:style => "text-align: center;"}= @pl.name
+
+%table
+  %tr
+    %th Reviews
+  - @posts.each do |post|
+    %tr
+      %td= post.content
+
+%br
+%br
+%br
+
+- if session[:uid]
+  %form{:method => "post", :action => "/post/create/#{session[:uid]}/#{@pl.id}", :style => "text-align: center;"}
+    %label{:for => "content"}
+    %input{:type => "text", :name => "content"}
+- else
+  %div{:style => "text-align: center;"} Please sign up or sign in to comment

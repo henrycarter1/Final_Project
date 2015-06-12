@@ -1,0 +1,22 @@
+%h2{:style => "text-align: center;"}= @s.name
+
+/%table
+/  %tr
+/    %th #{@s.name} Places
+/    -@places.each do |place|
+/      %tr
+/        %td
+/          %a{:href => "/location/view/subject/#{place.id}"}= place.name
+
+%table
+  %tr
+    %th #{@s.name} Places
+  - @places.each do |place|
+    %tr
+      %td
+        %a{:href => "/location/view/subject/#{place.id}"}= place.name
+
+%form{:method => "post", :action => "/place/create/#{@s.id}"}
+  %label{:for => "pname"} Make a new place
+  %input{:type => "text", :name => "pname"}
+  %input{:type => "submit"}

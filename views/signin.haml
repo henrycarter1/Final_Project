@@ -1,0 +1,23 @@
+%div{:class => "main-header", :style => "height: 80px; width: 100%; background-color: #CF0000;"}
+  %div{:style => "height: 5px; width: 100%;"}
+  %h2{:style => "text-align: center; color: white; font-family: Tahoma;"} Sign In
+
+%br
+
+%form{:method => "post", :action => "/user/login"}
+  %label{:for => "username"} Username
+  %input{:type => "text", :name => "username"}
+  %label{:for => "password"} Password
+  %input{:type => "text", :name => "password"}
+  %input{:type => "submit", :value => "Sign In"}
+
+%br
+
+%div{:style => "color: red;"}
+  - if @correct == false
+    = "Sorry, your username or password is incorrect. Please try again."
+
+%br
+%br
+
+%a{:href => "/"} Go Back
